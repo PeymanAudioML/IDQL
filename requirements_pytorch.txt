@@ -1,0 +1,34 @@
+# Core dependencies
+torch>=1.9.0
+torchvision>=0.10.0
+numpy>=1.19.0
+
+# Offline RL
+gym==0.18.0
+mujoco-py==2.0.2.13
+git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl
+
+# Training utilities
+tqdm>=4.62.0
+matplotlib>=3.3.0
+pandas>=1.3.0
+scikit-learn>=0.24.0
+
+# Experiment tracking (optional)
+wandb>=0.12.0
+tensorboard>=2.7.0
+
+# Data handling
+h5py>=3.0.0
+pickle5>=0.0.11
+
+# Utilities
+einops>=0.3.0
+pyyaml>=5.4.0
+omegaconf>=2.1.0
+
+# Development tools (optional)
+pytest>=6.2.0
+black>=21.6b0
+flake8>=3.9.0
+isort>=5.9.0

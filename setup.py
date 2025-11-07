@@ -1,49 +1,53 @@
-import os
-import pathlib
+#!/usr/bin/env python
+"""
+Setup script for JAXRL5-PyTorch
+"""
 
-from setuptools import find_packages, setup
+from setuptools import setup, find_packages
 
-here = pathlib.Path(__file__).parent.resolve()
-
-long_description = (here / "README.md").read_text(encoding="utf-8")
-
-
-def read_requirements_file(filename):
-    req_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
-    with open(req_file_path) as f:
-        return [line.strip() for line in f]
-
-
-description = "Implementations of Reinforcement Learning algorithms in Jax."
-
-install_requires = read_requirements_file("requirements.txt")
-test_requires = read_requirements_file("requirements_test.txt")
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 setup(
-    name="jaxrl5",
-    version="0.0.1",
-    description=description,
+    name="idql",
+    version="1.0.0",
+    author="PeymanAudioML",
+    description="PyTorch implementation of IDQL (Implicit Diffusion Q-Learning)",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/ikostrikov/jaxrl",
-    author="Ilya Kostrikov",
+    url="https://github.com/PeymanAudioML/IDQL",
+    packages=find_packages(),
     classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "Intended Audience :: Education",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Programming Language :: Python :: 3.10",
     ],
-    keywords="reinforcement, machine, learning, research",
-    packages=find_packages(),
-    install_requires=install_requires,
-    test_requires=test_requires,
+    python_requires=">=3.7",
+    install_requires=[
+        "numpy>=1.19.0",
+        "torch>=1.9.0",
+        "gym==0.18.0",
+        "tqdm>=4.62.0",
+        "einops>=0.3.0",
+    ],
     extras_require={
-        "test": test_requires,
+        "dev": [
+            "pytest>=6.2.0",
+            "black>=21.6b0",
+            "flake8>=3.9.0",
+        ],
+        "d4rl": [
+            "mujoco-py==2.0.2.13",
+            "d4rl @ git+https://github.com/Farama-Foundation/d4rl@master#egg=d4rl",
+        ],
+        "wandb": [
+            "wandb>=0.12.0",
+        ],
     },
-    license="MIT",
 )
