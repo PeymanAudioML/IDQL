@@ -1,0 +1,93 @@
+{
+    // Python Interpreter
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+
+    // Python Environment
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+
+    // Linting
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E203,W503,E501"
+    ],
+
+    // Formatting
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=120"
+    ],
+    "[python]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.rulers": [120]
+    },
+
+    // Testing
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "-v",
+        "--tb=short"
+    ],
+
+    // IntelliSense
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+
+    // Auto-save
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+
+    // File Exclusions
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/venv": false,
+        "**/.venv": true,
+        "**/*.egg-info": true
+    },
+
+    // Search Exclusions
+    "search.exclude": {
+        "**/venv": true,
+        "**/.venv": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/wandb": true,
+        "**/logs": true
+    },
+
+    // File Watchers
+    "files.watcherExclude": {
+        "**/venv/**": true,
+        "**/.venv/**": true,
+        "**/wandb/**": true,
+        "**/logs/**": true
+    },
+
+    // Terminal
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+
+    // Editor
+    "editor.rulers": [80, 120],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.trimAutoWhitespace": true,
+
+    // Git
+    "git.ignoreLimitWarning": true
+}

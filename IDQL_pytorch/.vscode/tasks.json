@@ -1,0 +1,197 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/pip",
+            "args": [
+                "install",
+                "-r",
+                "requirements.txt"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Install Package (Editable)",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/pip",
+            "args": [
+                "install",
+                "-e",
+                "."
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Run Current Python File",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python",
+            "args": [
+                "${file}"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Train DDPM-IQL Offline",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python",
+            "args": [
+                "launcher/examples/train_ddpm_iql_offline.py"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Train DDPM-IQL Finetune",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python",
+            "args": [
+                "launcher/examples/train_ddpm_iql_finetune.py"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Train IQL (One Param)",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python",
+            "args": [
+                "launcher/iql/train_iql_oneparam.py"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Train Offline (States)",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python",
+            "args": [
+                "examples/states/train_offline.py"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Train Diffusion Offline (States)",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python",
+            "args": [
+                "examples/states/train_diffusion_offline.py"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Run Tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/pytest",
+            "args": [
+                "-v"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "test"
+        },
+        {
+            "label": "Clean Python Cache",
+            "type": "shell",
+            "command": "find",
+            "args": [
+                ".",
+                "-type",
+                "d",
+                "-name",
+                "__pycache__",
+                "-exec",
+                "rm",
+                "-rf",
+                "{}",
+                "+",
+                "2>/dev/null",
+                "||",
+                "true"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Activate Virtual Environment",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "Run: source venv/bin/activate"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Setup Environment (Full)",
+            "dependsOn": [
+                "Install Dependencies",
+                "Install Package (Editable)"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

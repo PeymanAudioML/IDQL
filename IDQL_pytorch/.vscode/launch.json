@@ -1,0 +1,106 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Train DDPM-IQL Offline",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/launcher/examples/train_ddpm_iql_offline.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": []
+        },
+        {
+            "name": "Train DDPM-IQL Finetune",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/launcher/examples/train_ddpm_iql_finetune.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": []
+        },
+        {
+            "name": "Train IQL",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/launcher/iql/train_iql_oneparam.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": []
+        },
+        {
+            "name": "Train Offline (States)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/examples/states/train_offline.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": []
+        },
+        {
+            "name": "Train Diffusion Offline (States)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/examples/states/train_diffusion_offline.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": []
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/venv/bin/pytest",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "-v",
+                "${file}"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Python: Attach to Process",
+            "type": "debugpy",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ]
+        }
+    ]
+}
